@@ -1,6 +1,6 @@
-import sqlite3
-from flask import Flask
-DATABASE_NAME = "iot.db"
+from flask import Flask, jsonify, request
+import iot_controller
+from db import create_tables
 
 app = Flask(__name__)
 

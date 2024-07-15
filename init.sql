@@ -4,13 +4,13 @@ CREATE TABLE IF NOT EXISTS admin (
 );
 
 CREATE TABLE IF NOT EXISTS company (
-    id INT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     company_name TEXT,
     company_api_key TEXT
 );
 
 CREATE TABLE IF NOT EXISTS location (
-    id INT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     location_name TEXT,
     location_country TEXT,
     location_city TEXT,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS location (
 );
 
 CREATE TABLE IF NOT EXISTS sensor (
-    id INT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     sensor_id INT,
     sensor_name TEXT,
     sensor_category TEXT,
@@ -26,3 +26,5 @@ CREATE TABLE IF NOT EXISTS sensor (
     sensor_api_key TEXT,
     location_id INT
 );
+
+INSERT INTO admin (username, password) VALUES ('admin1', 'password1');

@@ -1,5 +1,4 @@
 from db import get_db
-
 # Insert a new admin record
 def create_admin(username, password):
     db = get_db()
@@ -34,11 +33,11 @@ def delete_admin(username):
     db.commit()
 
 # Insert a new company record
-def create_company(id, company_name, company_api_key):
+def create_company(company_name, company_api_key):
     db = get_db()
     cursor = db.cursor()
-    query = "INSERT INTO company (id, company_name, company_api_key) VALUES (?, ?, ?)"
-    cursor.execute(query, (id, company_name, company_api_key))
+    query = "INSERT INTO company (company_name, company_api_key) VALUES (?, ?)"
+    cursor.execute(query, (company_name, company_api_key))
     db.commit()
 
 # Retrieve all company records
@@ -67,11 +66,11 @@ def delete_company(id):
     db.commit()
 
 # Insert a new location record
-def create_location(id, location_name, location_country, location_city, location_meta):
+def create_location(location_name, location_country, location_city, location_meta):
     db = get_db()
     cursor = db.cursor()
-    query = "INSERT INTO location (id, location_name, location_country, location_city, location_meta) VALUES (?, ?, ?, ?, ?)"
-    cursor.execute(query, (id, location_name, location_country, location_city, location_meta))
+    query = "INSERT INTO location (location_name, location_country, location_city, location_meta) VALUES (?, ?, ?, ?)"
+    cursor.execute(query, (location_name, location_country, location_city, location_meta))
     db.commit()
 
 # Retrieve all location records
@@ -100,11 +99,11 @@ def delete_location(id):
     db.commit()
 
 # Insert a new sensor record
-def create_sensor(id, sensor_id, sensor_name, sensor_category, sensor_meta, sensor_api_key, location_id):
+def create_sensor(sensor_id, sensor_name, sensor_category, sensor_meta, sensor_api_key, location_id):
     db = get_db()
     cursor = db.cursor()
-    query = "INSERT INTO sensor (id, sensor_id, sensor_name, sensor_category, sensor_meta, sensor_api_key, location_id) VALUES (?, ?, ?, ?, ?, ?, ?)"
-    cursor.execute(query, (id, sensor_id, sensor_name, sensor_category, sensor_meta, sensor_api_key, location_id))
+    query = "INSERT INTO sensor (sensor_id, sensor_name, sensor_category, sensor_meta, sensor_api_key, location_id) VALUES (?, ?, ?, ?, ?, ?)"
+    cursor.execute(query, (sensor_id, sensor_name, sensor_category, sensor_meta, sensor_api_key, location_id))
     db.commit()
 
 # Retrieve all sensor records
@@ -131,5 +130,3 @@ def delete_sensor(id):
     query = "DELETE FROM sensor WHERE id = ?"
     cursor.execute(query, (id,))
     db.commit()
-
-
